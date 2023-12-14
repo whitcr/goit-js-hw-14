@@ -2,16 +2,22 @@ const ingredients = [
   "Potatoes",
   "Mushrooms",
   "Garlic",
-  "Tomatos",
+  "Tomatoes",
   "Herbs",
   "Condiments",
 ];
 
-const ingredientsList = document.getElementById("ingredients");
-ingredients.forEach((ingredient) => {
-  const li = document.createElement("li");
-  li.textContent = ingredient;
-  li.classList.add("item");
+function addList() {
+  const ingredientsList = document.getElementById("ingredients");
 
-  ingredientsList.appendChild(li);
-});
+  const elements = ingredients.map((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    li.classList.add("item");
+    return li;
+  });
+
+  ingredientsList.append(...elements);
+}
+
+addList();
